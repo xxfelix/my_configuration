@@ -158,5 +158,5 @@ rules:
   - GEOSITE,geolocation-!cn,国外网站
 
   - GEOIP,google,Google
-  - GEOIP,CN,直连
-  - MATCH,直连
+  - GEOIP,CN,国外网站
+  - MATCH,国外网站
