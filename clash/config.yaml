@@ -137,22 +137,17 @@ proxy-groups:
     exclude-type: direct
     filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*"
 
-- RULE-SET,applications,DIRECT
+rules:
+  - RULE-SET,applications,DIRECT
   - DOMAIN,clash.razord.top,DIRECT
   - DOMAIN,yacd.haishan.me,DIRECT
   - RULE-SET,private,DIRECT
   - RULE-SET,reject,REJECT
-  - RULE-SET,icloud,DIRECT
-  - RULE-SET,apple,DIRECT
-  - RULE-SET,google,PROXY
-  - RULE-SET,proxy,PROXY
-  - RULE-SET,direct,DIRECT
-  - RULE-SET,lancidr,DIRECT
-  - RULE-SET,cncidr,DIRECT
-  - RULE-SET,telegramcidr,PROXY
-  - GEOIP,LAN,DIRECT
-  - GEOIP,CN,DIRECT
-  - MATCH,PROXY
+  - GEOSITE,spotify,Spotify
+  - RULE-SET,tld-not-cn,国外网站
+  - RULE-SET,gfw,国外网站
+  - RULE-SET,telegramcidr,国外网站
+  - MATCH,DIRECT
 
 rule-providers:
   reject:
