@@ -140,8 +140,8 @@ proxy-groups:
 rules:
   - GEOIP,lan,直连,no-resolve
   - GEOSITE,spotify,Spotify
-  - GEOSITE,CN,国外网站
+  - GEOSITE,CN,直连
   - GEOSITE,geolocation-!cn,国外网站
 
   - GEOIP,CN,国外网站
-  - MATCH,国外网站
+  - MATCH,Final
