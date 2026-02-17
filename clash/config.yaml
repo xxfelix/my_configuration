@@ -138,7 +138,6 @@ proxy-groups:
     filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*"
 
 rules:
-  - RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Global/Global.list,国外网站
   - GEOIP,lan,直连,no-resolve
   - GEOSITE,spotify,Spotify
   - GEOSITE,CN,直连
