@@ -84,14 +84,6 @@ proxy-groups:
     type: select
     proxies:  [美国,香港,台湾,日本,新加坡,其它地区,直连]
 
-  - name: 国外影视
-    type: select
-    proxies:  [美国,香港,台湾,日本,新加坡,其它地区,直连]
-
-  - name: OpenAi
-    type: select
-    proxies:  [美国,香港,台湾,日本,新加坡,其它地区,直连]
-
   - name: Spotify
     type: select
     proxies:  [直连,台湾,美国,香港,日本,新加坡,其它地区]
@@ -147,7 +139,7 @@ rules:
   - RULE-SET,tld-not-cn,国外网站
   - RULE-SET,gfw,国外网站
   - RULE-SET,telegramcidr,国外网站
-  - MATCH,DIRECT
+  - MATCH,Final
 
 rule-providers:
   reject:
