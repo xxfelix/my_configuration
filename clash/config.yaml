@@ -91,15 +91,15 @@ proxy-groups:
     type: select
     proxies: [自动选择,直连,香港,台湾,日本,新加坡,美国,其它地区,全部节点]
 
-  - name: 🌏 国外网站
+  - name: 国外网站
     type: select
     proxies:  [直连,默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择]
 
-  - name: 💻 国外影视
+  - name: 国外影视
     type: select
     proxies:  [直连,默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择]
 
-  - name: 💻 OpenAi
+  - name: OpenAi
     type: select
     proxies:  [直连,默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择]
 
