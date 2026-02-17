@@ -79,77 +79,63 @@ dns:
 
 proxy-groups:
 
-  - name: 默认
-    type: select
-    proxies: [自动选择,直连,香港,台湾,日本,新加坡,美国,其它地区,全部节点]
 
   - name: 国外网站
     type: select
-    proxies:  [直连,默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择]
+    proxies:  [美国,香港,台湾,日本,新加坡,其它地区,直连]
 
   - name: 国外影视
     type: select
-    proxies:  [直连,默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择]
+    proxies:  [美国,香港,台湾,日本,新加坡,其它地区,直连]
 
   - name: OpenAi
     type: select
-    proxies:  [直连,默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择]
+    proxies:  [美国,香港,台湾,日本,新加坡,其它地区,直连]
 
   - name: Spotify
     type: select
-    proxies:  [默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
+    proxies:  [直连,台湾,美国,香港,日本,新加坡,其它地区]
 
   - name: Final
     type: select
-    proxies:  [默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
+    proxies:  [直连,美国,香港,台湾,日本,新加坡,其它地区]
 
   #分隔,下面是地区分组
   - name: 香港
-    type: select
+    type: url-test
     include-all: true
     exclude-type: direct
     filter: "(?i)港|hk|hongkong|hong kong"
 
   - name: 台湾
-    type: select
+    type: url-test
     include-all: true
     exclude-type: direct
     filter: "(?i)台|tw|taiwan"
 
   - name: 日本
-    type: select
+    type: url-test
     include-all: true
     exclude-type: direct
     filter: "(?i)日|jp|japan"
 
   - name: 美国
-    type: select
+    type: url-test
     include-all: true
     exclude-type: direct
     filter: "(?i)美|us|unitedstates|united states"
 
   - name: 新加坡
-    type: select
+    type: url-test
     include-all: true
     exclude-type: direct
     filter: "(?i)(新|sg|singapore)"
 
   - name: 其它地区
-    type: select
-    include-all: true
-    exclude-type: direct
-    filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*"
-
-  - name: 全部节点
-    type: select
-    include-all: true
-    exclude-type: direct
-
-  - name: 自动选择
     type: url-test
     include-all: true
     exclude-type: direct
-    tolerance: 10
+    filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*"
 
 rules:
   - GEOIP,lan,直连,no-resolve
