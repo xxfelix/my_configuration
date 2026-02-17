@@ -83,43 +83,23 @@ proxy-groups:
     type: select
     proxies: [自动选择,直连,香港,台湾,日本,新加坡,美国,其它地区,全部节点]
 
-  - name: Telegram
-    type: select
-    proxies: [默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
-
-  - name: Twitter
-    type: select
-    proxies: [默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
-
-  - name: 哔哩哔哩
-    type: select
-    proxies: [默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
-
-  - name: 巴哈姆特
-    type: select
-    proxies: [默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
-
-  - name: YouTube
-    type: select
-    proxies: [默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
-
-  - name: NETFLIX
-    type: select
-    proxies: [默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
-
-  - name: Spotify
-    type: select
-    proxies:  [默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
-
-  - name: Github
-    type: select
-    proxies:  [默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
-
-  - name: 国内
+  - name: 🌏 国外网站
     type: select
     proxies:  [直连,默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择]
 
-  - name: 其他
+  - name: 💻 国外影视
+    type: select
+    proxies:  [直连,默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择]
+
+  - name: 💻 OpenAi
+    type: select
+    proxies:  [直连,默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择]
+
+   - name: Spotify
+    type: select
+    proxies:  [默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
+
+  - name: Final
     type: select
     proxies:  [默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
 
@@ -173,21 +153,10 @@ proxy-groups:
 
 rules:
   - GEOIP,lan,直连,no-resolve
-  - GEOSITE,github,Github
-  - GEOSITE,twitter,Twitter
-  - GEOSITE,youtube,YouTube
-  - GEOSITE,google,Google
-  - GEOSITE,telegram,Telegram
-  - GEOSITE,netflix,NETFLIX
-  - GEOSITE,bilibili,哔哩哔哩
-  - GEOSITE,bahamut,巴哈姆特
   - GEOSITE,spotify,Spotify
-  - GEOSITE,CN,国内
-  - GEOSITE,geolocation-!cn,其他
+  - GEOSITE,CN,Direct
+  - GEOSITE,geolocation-!cn,🌏 国外网站
 
   - GEOIP,google,Google
-  - GEOIP,netflix,NETFLIX
-  - GEOIP,telegram,Telegram
-  - GEOIP,twitter,Twitter
-  - GEOIP,CN,国内
-  - MATCH,其他
+  - GEOIP,CN,直连
+  - MATCH,直连
