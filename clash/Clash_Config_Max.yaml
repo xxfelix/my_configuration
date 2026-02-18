@@ -124,7 +124,6 @@ RuleSet: &RuleSet {type: http, behavior: classical, interval: 86400, format: yam
 # 策略组
 proxy-groups: 
   - {name: Proxy, type: select, proxies: [🇺🇸 美国节点, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇬🇧 英国节点, 🇫🇷 法国节点, 🇩🇪 德国节点], icon: 'https://raw.githubusercontent.com/pompurin404/mihomo-party/master/resources/icon.png'}
-  - {name: Apple, type: select, proxies: [DIRECT, Proxy], icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple_1.png'}
   - {name: OpenAI, type: select, proxies: [Proxy, 🇺🇸 美国节点, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇬🇧 英国节点, 🇫🇷 法国节点, 🇩🇪 德国节点],  icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ChatGPT.png'}
   - {name: Spotify, type: select, proxies: [DIRECT, Proxy], icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png'}
   - {name: GlobalMedia, type: select, proxies: [Proxy, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点, 🇬🇧 英国节点, 🇫🇷 法国节点, 🇩🇪 德国节点], icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ForeignMedia.png'}
@@ -194,15 +193,15 @@ rule-providers:
 
 # 分流规则指向
 rules:
- - RULE-SET,Apple,Apple
+ - RULE-SET,Apple,DIRECT
  - RULE-SET,Spotify,Spotify
  - RULE-SET,ChinaMedia,DIRECT
  - RULE-SET,GlobalMedia,GlobalMedia
  - RULE-SET,OpenAI,OpenAI
+ - RULE-SET,tld-not-cn,Proxy
+ - RULE-SET,gfw,Proxy
  - RULE-SET,Proxy,Proxy
  - RULE-SET,LAN,DIRECT
  - RULE-SET,China,DIRECT
  - GEOIP,CN,DIRECT
- - RULE-SET,tld-not-cn,Proxy
- - RULE-SET,gfw,Proxy
  - MATCH,漏网之鱼
