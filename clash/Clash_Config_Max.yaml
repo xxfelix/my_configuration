@@ -99,11 +99,6 @@ proxies:
 NodeParam: &NodeParam {type: http, interval: 86400, health-check: {enable: true, url: 'http://connectivitycheck.gstatic.com/generate_204', interval: 60}}
 
 # 锚点 - 节点订阅
-proxy-providers: 
-  我的节点:
-    url: 'https://d41d8cd98f-1ytapi02.1ytsub.com/api/v1/client/subscribe?token=a9dbb974f4c3be7287608efb8270fa18'
-    <<: *NodeParam
-    path: './proxy_provider/Providers.yaml'
 
 # 锚点 - 节点筛选组
 FilterUS: &FilterUS '^(?=.*((?i)🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|(\b(US|United States)\b))).*$'
@@ -124,7 +119,7 @@ RuleSet: &RuleSet {type: http, behavior: classical, interval: 86400, format: yam
 # 策略组
 proxy-groups: 
   - {name: Proxy, type: select, proxies: [🇺🇸 美国节点, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇬🇧 英国节点, 🇫🇷 法国节点, 🇩🇪 德国节点], icon: 'https://raw.githubusercontent.com/pompurin404/mihomo-party/master/resources/icon.png'}
-  - {name: OpenAI, type: select, proxies: [Proxy, 🇺🇸 美国节点, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇬🇧 英国节点, 🇫🇷 法国节点, 🇩🇪 德国节点],  icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ChatGPT.png'}
+  - {name: OpenAI1, type: select, proxies: [Proxy, 🇺🇸 美国节点, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇬🇧 英国节点, 🇫🇷 法国节点, 🇩🇪 德国节点],  icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ChatGPT.png'}
   - {name: Spotify, type: select, proxies: [DIRECT, Proxy], icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png'}
   - {name: GlobalMedia, type: select, proxies: [Proxy, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点, 🇬🇧 英国节点, 🇫🇷 法国节点, 🇩🇪 德国节点], icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ForeignMedia.png'}
   - {name: 漏网之鱼, type: select, proxies: [DIRECT, Proxy], icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png'}
@@ -182,8 +177,7 @@ rule-providers:
   gfw:
     <<: *RuleSet
     url: 'https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/gfw.txt'
-    path: './ruleset/gfw.yaml'
-    interval: 86400
+    path: './ruleset/gfw.yaml
 
   tld-not-cn:
     <<: *RuleSet
