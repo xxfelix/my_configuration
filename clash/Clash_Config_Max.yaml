@@ -119,10 +119,11 @@ RuleSet: &RuleSet {type: http, behavior: classical, interval: 86400, format: yam
 # 策略组
 proxy-groups: 
   - {name: Proxy, type: select, proxies: [🇺🇸 美国节点, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇬🇧 英国节点, 🇫🇷 法国节点, 🇩🇪 德国节点], icon: 'https://raw.githubusercontent.com/pompurin404/mihomo-party/master/resources/icon.png'}
-  - {name: OpenAI1, type: select, proxies: [Proxy, 🇺🇸 美国节点, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇬🇧 英国节点, 🇫🇷 法国节点, 🇩🇪 德国节点],  icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ChatGPT.png'}
+  - {name: OpenAI, type: select, proxies: [Proxy, 🇺🇸 美国节点, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇬🇧 英国节点, 🇫🇷 法国节点, 🇩🇪 德国节点],  icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ChatGPT.png'}
   - {name: Spotify, type: select, proxies: [DIRECT, Proxy], icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png'}
   - {name: GlobalMedia, type: select, proxies: [Proxy, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点, 🇬🇧 英国节点, 🇫🇷 法国节点, 🇩🇪 德国节点], icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ForeignMedia.png'}
   - {name: 漏网之鱼, type: select, proxies: [DIRECT, Proxy], icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png'}
+  - {name: 漏网之鱼 234, type: select, proxies: [DIRECT, Proxy], icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png'}
   - {name: 🇭🇰 香港节点, <<: *FallBack, filter: *FilterHK}
   - {name: 🇯🇵 日本节点, <<: *FallBack, filter: *FilterJP}
   - {name: 🇰🇷 韩国节点, <<: *FallBack, filter: *FilterKR}
