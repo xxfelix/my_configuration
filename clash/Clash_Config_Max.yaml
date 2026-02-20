@@ -178,7 +178,7 @@ rule-providers:
   gfw:
     <<: *RuleSet
     url: 'https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/gfw.txt'
-    path: './ruleset/gfw.yaml
+    path: './ruleset/gfw.yaml'
 
   tld-not-cn:
     <<: *RuleSet
