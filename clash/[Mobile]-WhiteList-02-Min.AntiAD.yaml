@@ -816,7 +816,7 @@ dns                               :
 proxy-providers:
 
    SUB-Provider-01:
-      type     : https
+      type     : http
       url      : 'https://d41d8cd98f-1ytapi02.1ytsub.com/api/v1/client/subscribe?token=a9dbb974f4c3be7287608efb8270fa18'
       interval : 43200
       path     : ./proxy-providers/SUB-Provider-01.yaml
