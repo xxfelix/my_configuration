@@ -1,13 +1,14 @@
 # url 里填写自己的订阅,名称不能重复
 proxy-providers:
- provider:
-    url: "https://d41d8cd98f-1ytapi02.1ytsub.com/api/v1/client/subscribe?token=a9dbb974f4c3be7287608efb8270fa18"
-    type: http
-    interval: 86400
-    health-check: {enable: true,url: "https://www.gstatic.com/generate_204", interval: 300}
-    override:
-      additional-prefix: "[一云梯]"
-
+ SUB-Provider-01:
+      type     : http
+      url      : 'https://d41d8cd98f-1ytapi02.1ytsub.com/api/v1/client/subscribe?token=a9dbb974f4c3be7287608efb8270fa18'
+      interval : 43200
+      path     : ./proxy-providers/SUB-Provider-01.yaml
+    # filter   : '.*'                                                   # 可选：正则过滤订阅节点名称（留空=不过滤）
+      override :                                                        # 可选：防止与内置节点重名（Clash Meta / Mihomo）
+                additional-prefix : 'VPS-落地-'
+              
 
 proxies: 
   - name: "直连"
