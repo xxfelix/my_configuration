@@ -822,7 +822,7 @@ proxy-providers:
       path     : ./proxy-providers/SUB-Provider-01.yaml
     # filter   : '.*'                                                   # 可选：正则过滤订阅节点名称（留空=不过滤）
       override :                                                        # 可选：防止与内置节点重名（Clash Meta / Mihomo）
-                additional-prefix : '中转-'
+                additional-prefix : 'VPS-Relay-'
 
 
 
