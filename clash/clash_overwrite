@@ -5,6 +5,14 @@
 # 地址： https://github.com/Seven1echo/Yaml
 # 说明： ①本文件适用于Clashmi覆写； ②已隐藏“故障转移”、“延迟自选”这两个策略组，使用时手动选取对应地区节点即可。
 
+proxy-providers:
+ SUB-Provider-01:
+      type     : http
+      url      : 'https://d41d8cd98f-1ytapi02.1ytsub.com/api/v1/client/subscribe?token=a9dbb974f4c3be7287608efb8270fa18'
+      interval : 43200
+      path     : ./proxy-providers/SUB-Provider-01.yaml
+    # filter   : '.*'                                                   # 可选：正则过滤订阅节点名称（留空=不过滤）
+      
 
 
 # ※※※※※※※※※※※※※※※ 锚点区域 ※※※※※※※※※※※※※※※
