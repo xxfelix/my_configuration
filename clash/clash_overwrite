@@ -1,29 +1,21 @@
-# 名称： Seven1_fallback_Rule-Set_Overwrite
+#
 # 版本： V2026.2.13
-# 日期： 2026年2月13日
-# 频道： https://t.me/Seven1gogogo
+# 日期： 2026年2月24日
+# 基于一下更新
 # 地址： https://github.com/Seven1echo/Yaml
 # 说明： ①本文件适用于Clashmi覆写； ②已隐藏“故障转移”、“延迟自选”这两个策略组，使用时手动选取对应地区节点即可。
 
-proxy-providers:
- SUB-Provider-01:
-      type     : http
-      url      : 'https://d41d8cd98f-1ytapi02.1ytsub.com/api/v1/client/subscribe?token=a9dbb974f4c3be7287608efb8270fa18'
-      interval : 43200
-      path     : ./proxy-providers/SUB-Provider-01.yaml
-    # filter   : '.*'                                                   # 可选：正则过滤订阅节点名称（留空=不过滤）
-      
 
 
 # ※※※※※※※※※※※※※※※ 锚点区域 ※※※※※※※※※※※※※※※
 # ① 订阅锚点
-Anchor_PR: &Anchor_PR {type: http, interval: 86400, proxy: DIRECT, health-check: {enable: true, url: 'https://www.g.cn/generate_204', interval: 300}, filter: "^(?!.*(到期|过期|剩余|网址|官网|邮箱|订阅|套餐|流量|说明|重置)).*$"}
+Anchor_PR: &Anchor_PR {type: http, interval: 86400, proxy: DIRECT, health-check: {enable: true, url: 'https://cp.cloudflare.com/generate_204', interval: 300}, filter: "^(?!.*(到期|过期|剩余|网址|官网|邮箱|订阅|套餐|流量|说明|重置)).*$"}
 # ② 出站锚点
 Anchor_OB: &Anchor_OB {type: select, proxies: [一键代理, 香港故转, 台湾故转, 日本故转, 韩国故转, 新加坡故转, 美国故转, 欧洲故转, 香港自动, 台湾自动, 日本自动, 韩国自动, 新加坡自动, 美国自动, 欧洲自动, 香港手动, 台湾手动, 日本手动, 韩国手动, 新加坡手动, 美国手动, 欧洲手动, 其他手动, DIRECT, REJECT]}
 # ③ 策略锚点
 Anchor_HS: &Anchor_HS {type: select, include-all: true}
-Anchor_FB: &Anchor_FB {type: fallback, url: 'https://www.g.cn/generate_204', interval: 300, lazy: false, timeout: 2000, max-failed-times: 3, hidden: true}
-Anchor_UT: &Anchor_UT {type: url-test, url: 'https://www.g.cn/generate_204', interval: 300, lazy: false, tolerance: 50, timeout: 2000, max-failed-times: 3, hidden: true, include-all: true}
+Anchor_FB: &Anchor_FB {type: fallback, url: 'https://cp.cloudflare.com/generate_204', interval: 300, lazy: false, timeout: 2000, max-failed-times: 3, hidden: true}
+Anchor_UT: &Anchor_UT {type: url-test, url: 'https://cp.cloudflare.com/generate_204', interval: 300, lazy: false, tolerance: 50, timeout: 2000, max-failed-times: 3, hidden: true, include-all: true}
 # ④ 区域锚点
 Anchor_HK: &Anchor_HK '^(?i)(?=.*(香港|🇭🇰|\bHK\b|Hong(?:\s?Kong)?|HKG)).*$'
 Anchor_TW: &Anchor_TW '^(?i)(?=.*(台湾|台灣|🇹🇼|\bTW\b|\bTPE\b|\bTSA\b|\bKHH\b|taiwan|TPE|TSA|KHH)).*$'
@@ -124,22 +116,16 @@ dns:
 # 策略组（按服务分组）
 proxy-groups:
   - {name: 一键代理, type: select, proxies: [香港故转, 台湾故转, 日本故转, 韩国故转, 新加坡故转, 美国故转, 欧洲故转, 香港自动, 台湾自动, 日本自动, 韩国自动, 新加坡自动, 美国自动, 欧洲自动, 香港手动, 台湾手动, 日本手动, 韩国手动, 新加坡手动, 美国手动, 欧洲手动, 其他手动, DIRECT, REJECT], icon: https://github.com/Seven1echo/Yaml/raw/main/icons/Rocket.png}
-  - {name: YouTube,   <<: *Anchor_OB, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/YouTube.png}
-  - {name: Google,    <<: *Anchor_OB, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/Google.png}
+  - {name: YouTube,   <<: *一键代理, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/YouTube.png, hidden: true}
+  - {name: Google,    <<: *一键代理, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/Google.png, hidden: true}
   - {name: ChatGPT,   <<: *Anchor_OB, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/ChatGPT.png}
-  - {name: GitHub,    <<: *Anchor_OB, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/GitHub.png}
-  - {name: OneDrive,  <<: *Anchor_OB, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/OneDrive.png}
-  - {name: Microsoft, <<: *Anchor_OB, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/Microsoft.png}
-  - {name: AppleTV,   <<: *Anchor_OB, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/AppleTV.png}
-  - {name: Apple,     <<: *Anchor_OB, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/Apple.png}
-  - {name: TikTok,    <<: *Anchor_OB, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/TikTok.png}
-  - {name: Twitter,   <<: *Anchor_OB, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/Twitter.png}
-  - {name: Telegram,  <<: *Anchor_OB, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/Telegram.png}
-  - {name: Netflix,   <<: *Anchor_OB, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/Netflix.png}
-  - {name: Disney,    <<: *Anchor_OB, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/Disney.png}
+  - {name: GitHub,    <<: *一键代理, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/GitHub.png, hidden: true}
+  - {name: Twitter,   <<: *一键代理, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/Twitter.png, hidden: true}
+  - {name: Telegram,  <<: *一键代理, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/Telegram.png, hidden: true}
+  - {name: Netflix,   <<: *一键代理, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/Netflix.png, hidden: true}
+  - {name: Disney,    <<: *一键代理, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/Disney.png, hidden: true}
   - {name: Spotify,   <<: *Anchor_OB, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/Spotify.png} 
-  - {name: PayPal,    <<: *Anchor_OB, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/PayPal.png}
-  - {name: Speedtest, <<: *Anchor_OB, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/Speedtest.png}
+  - {name: Speedtest, <<: *一键代理, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/Speedtest.png, hidden: true}
   - {name: 漏网之鱼,   <<: *Anchor_OB, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/MATCH.png}
 
 # 策略组（按区域分组）
