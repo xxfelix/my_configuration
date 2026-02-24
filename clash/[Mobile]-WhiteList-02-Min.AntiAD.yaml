@@ -813,16 +813,6 @@ dns                               :
 #     - 订阅节点名称需包含国家/用途关键字（例如：US + Relay / 美国 + 中转 / Residential + 美国），才能被本模版的 filter 命中并纳入对应策略组。
 #     - 若订阅节点与内置节点出现同名，会造成引用冲突；建议在订阅侧改名，或在 Clash Meta/Mihomo 下启用 override.additional-prefix。
 
-proxy-providers:
-
-   SUB-Provider-01:
-      type     : http
-      url      : 'https://d41d8cd98f-1ytapi02.1ytsub.com/api/v1/client/subscribe?token=a9dbb974f4c3be7287608efb8270fa18'
-      interval : 43200
-      path     : ./proxy-providers/SUB-Provider-01.yaml
-    # filter   : '.*'                                                   # 可选：正则过滤订阅节点名称（留空=不过滤）
-      #override :                                                        # 可选：防止与内置节点重名（Clash Meta / Mihomo）
-      #          additional-prefix : ''
 
 
 
